@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>风险测评</title>
+    {{include 'base/style.html'}}
+    <link rel="stylesheet" href="{{=URL('static','module/question/common.min.css')}}">
+    <link rel="stylesheet" href="{{=URL('static','module/question/base.min.css')}}">
+</head>
+<body class="jrm-bg-color-fff" style="overflow: hidden;">
+<div id="main-content" class="jrm-pr jrm-bfc content-container transition transition-page burstIn show">
+    <section class="full-page result-wrap" id="resultPage">
+        <div class="title jrm-fs28 jrm-color-666">您的投资类型为</div>
+        <div class="jrm-pr type">
+            <span class="type-wrap">平衡型</span>
+        </div>
+        <p class="explain jrm-fs32 jrm-color-999">您对风险损失有着客观理性的认知，投资时能够在“风险最小化”和“收益最大化”之间寻求平衡。</p>
+        <div class="return-wrap jrm-fs28 jrm-txt-center jrm-color-508cee">
+            <a id="return-btn" class="return-btn">重测</a>
+        </div>
+        <div class="jrm-fs24 copy-right jrm-txt-center jrm-color-ccc jrm-txt-center">
+            <span class="bottom-icon">i</span>该风险测评结果有效期两年，过期后请重新测评
+        </div>
+        <div id="finsh"  class="am-center" style="width: 70%; vertical-align:middle;" >
+            <button type="button" class="am-btn-block am-btn-block am-btn am-btn-primary am-round">完成</button>
+
+        </div>
+        <a class="serchInfo" href="{{=URL('inforPage')}}">查看投资人须知、特别声明</a>
+
+        <!-- <p class="rooter"></p> -->
+    </section>
+</div>
+{{include 'base/jsFile.html'}}
+<script type="text/javascript">
+
+
+    $("#return-btn").click(function () {
+        window.location.href = "{{=URL('answer')}}"
+    });
+    $("#finsh").click(function () {
+        window.location.href = "{{=URL('mind')}}"
+    });
+
+
+</script>
+
+</body>
+</html>

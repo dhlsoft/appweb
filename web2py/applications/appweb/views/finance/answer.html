@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+    <title>风险测评</title>
+    {{include 'base/style.html'}}
+    <link rel="stylesheet" href="{{=URL('static','swiper/css/swiper.min.css')}}">
+    <link rel="stylesheet" href="{{=URL('static','module/answer/main.css')}}">
+</head>
+<style>
+</style>
+<body>
+<div class="mind">
+  <div class="swiper-container swiper-container-horizontal">
+    <header data-am-widget="header"
+            class="am-header am-header-default">
+        <div class="am-header-left am-header-nav">
+            <button id="close" type="button" class="am-close am-close-spin">&times;</button>
+        </div>
+
+        <h4 class="am-header-title">
+            风险测评
+        </h4>
+    </header>
+
+    <div class="swiper-wrapper">
+      <dl class="swiper-slide swiper-no-swiping" >
+        <dt>1. 您的家庭有没有做理财规划：</dt>
+        <dd>A、有</dd>
+        <dd>B、没有</dd>
+      </dl>
+      <dl class="swiper-slide swiper-no-swiping" >
+        <dt>2. 您的年龄段：</dt>
+        <dd>A、20——30</dd>
+        <dd>B、30——40</dd>
+        <dd>C、40——50</dd>
+        <dd>D、50岁以上</dd>
+      </dl>
+      <dl class="swiper-slide swiper-no-swiping" >
+        <dt>3. 您的收入来源主要是：</dt>
+        <dd>A、工资</dd>
+        <dd>B、实业投资</dd>
+        <dd>C、金融理财投资</dd>
+        <dd>D、其他</dd>
+      </dl>
+      <dl class="swiper-slide swiper-no-swiping" >
+        <dt>4、若您选择投资理财，您可能会考虑以下的品种有：</dt>
+        <dd>A、股票</dd>
+        <dd>B、期货</dd>
+        <dd>C、上海金或伦敦金</dd>
+        <dd>D、基金</dd>
+      </dl>
+      <dl class="swiper-slide swiper-no-swiping" >
+        <dt>5. 您最看好以下哪种理财方式？</dt>
+        <dd>A、股票、基金、债券等</dd>
+        <dd>B、期货</dd>
+        <dd>C、黄金白银</dd>
+        <dd>D、外汇</dd>
+        <dd>E、房地产</dd>
+      </dl>
+      <dl class="swiper-slide swiper-no-swiping" >
+        <dt>6. 您目前所从事的职业类型(     )</dt>
+        <dd>A、技术类</dd>
+        <dd>B、文秘类</dd>
+        <dd>C、销售类</dd>
+        <dd>D、其他</dd>
+      </dl>
+      <dl class="swiper-slide swiper-no-swiping" >
+        <dt>7. 您能在投资理财方面花费的时间所占工作生活的比重？</dt>
+        <dd>A、很有兴趣，但无机会了解</dd>
+        <dd>B、下班时间或业余时间</dd>
+        <dd>C、有很多时间来关注</dd>
+        <dd>D、没空理会</dd>
+      </dl>
+      <dl class="swiper-slide swiper-no-swiping" >
+        <dt>8. 您对投资理财的年收益多少就会感到满意？</dt>
+        <dd>A、5% ——10%</dd>
+        <dd>B、10%——20%</dd>
+        <dd>C、20%——30%</dd>
+        <dd>D、30%——40%</dd>
+        <dd>E、30%以上才满意</dd>
+      </dl>
+      <dl class="swiper-slide swiper-no-swiping" >
+        <dt>9. 您对投资理财产生回报的周期可以接受的时间长度是？</dt>
+        <dd>A、一周</dd>
+        <dd>B、一月</dd>
+        <dd>C、一个季度</dd>
+        <dd>D、半年以上</dd>
+      </dl>
+      <dl class="swiper-slide swiper-no-swiping" >
+        <dt>10. 若金融投资领域有合适您的工作，您会考虑在金融领域发展或转行吗？</dt>
+        <dd>A、很有兴趣，A.我很希望能够从事金融投资方面的工作</dd>
+        <dd>B、如果有合适的机会或兼职，我想我会考虑</dd>
+        <dd>C、我对目前的工作挺满意，不会考虑</dd>
+        <dd>D、金融投资工作风险太大，没兴趣</dd>
+      </dl>
+    </div>
+    <div class="swiper-button-prev swiper-button-blue swiper-button-disabled"></div>
+    <!--<div class="swiper-button-next"></div>-->
+    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+      <span class="swiper-pagination-bullet swiper-pagination-bullet-active">1</span>
+      <span class="swiper-pagination-bullet">2</span>
+      <span class="swiper-pagination-bullet">3</span>
+      <span class="swiper-pagination-bullet">4</span>
+      <span class="swiper-pagination-bullet">5</span>
+      <span class="swiper-pagination-bullet">6</span>
+      <span class="swiper-pagination-bullet">7</span>
+      <span class="swiper-pagination-bullet">8</span>
+      <span class="swiper-pagination-bullet">9</span>
+      <span class="swiper-pagination-bullet">10</span>
+    </div>
+    <div class="mindfot">
+      <div class="fl-left" id="numok"><img src="{{=URL('static','module/answer/mindok.png')}}"><span>提交</span></div>
+      <div class="fl-right" id="showall"><img src="{{=URL('static','module/answer/mindnum.png')}}"><span id="curnum">1</span>/<span id="totnum">10</span></div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="maskwhite"></div>
+    <div class="subjuan">
+      <p>提示</p>
+      <p>您已经回答了<span id="subnum"></span>题，确定要提交么？</p>
+      <div class="subyn">
+        <div class="fl-left" id="subno">取消</div>
+        <div class="fl-right" id="subyes">提交</div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{include 'base/jsFile.html'}}
+<script src="{{=URL('static','swiper/js/swiper.min.js')}}"></script>
+<script type="text/javascript">
+
+//题目轮播
+var swiper = new Swiper('.swiper-container', {
+
+		pagination: '.swiper-pagination',
+
+		prevButton:'.swiper-button-prev',
+		nextButton:'.swiper-button-next',
+
+        paginationClickable: true,
+
+//        effect : 'cube',
+
+        paginationBulletRender: function (s,index, className) {
+        	$("#totnum").text(index+1);//总页码
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
+
+
+        },
+
+        onSlideChangeEnd: function(swiper){
+      		$("#curnum").text(swiper.activeIndex+1);//当前页
+    	}
+
+  });
+
+
+
+//点击底部出现题目数
+$("#showall").click(function(){
+	$(".maskwhite").toggle();
+	$(".swiper-pagination").toggle();
+});
+
+//选择答案
+$("dl.swiper-slide dd").click(function(){
+	$(this).parent("dl").find("dd").removeClass("chance");
+	$(this).addClass("chance");
+
+	var indexnum = $(this).parent("dl").index();
+	$(".swiper-pagination span").eq(indexnum).addClass("curr");
+    if($("#totnum").text()==(indexnum+1)){
+        subjuan();
+    }else{
+        swiper.slideNext(false,1000);
+    }
+
+
+});
+
+//交卷
+$("#numok").click(subjuan);
+
+function subjuan(){
+    //$("dl").find("dd")
+	$(".swiper-pagination").hide();
+
+	var allnum = $("#totnum").text();
+	$("#subnum").text(allnum);
+	var lengths = $(".swiper-pagination span.curr").length;
+
+	if(lengths==allnum){
+		$(".maskwhite").show();
+		$(".subjuan").show();
+		$("#subno").click(function(){//取消
+			$(".maskwhite").hide();
+			$(".subjuan").hide();
+		});
+		$("#subyes").click(function(){//取消
+			$(".maskwhite").hide();
+			$(".subjuan").hide();
+			window.location.href="{{=URL('question')}}"
+		});
+	}
+
+	else{
+		$(".maskwhite").hide();
+	}
+
+
+}
+
+$("#close").click(function(){
+	window.location.href="{{=URL('question')}}"
+});
+
+</script>
+
+</body></html>

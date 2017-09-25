@@ -1,0 +1,211 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <title>ZTE 中兴金融科技</title>
+    {{include 'base/style.html'}}
+
+    <link rel="stylesheet" href="{{=URL('static','module/annular/css/iconfont/iconfont.css')}}">
+    <link rel="stylesheet" href="{{=URL('static','module/annular/style/reset.css')}}">
+    <link rel="stylesheet" href="{{=URL('static','module/annular/style/style.css')}}">
+
+    <script src="{{=URL('static','module/annular/js/zcircleMove.js')}}"></script>
+</head>
+<style>
+    .am-nav-tabs {
+      border-bottom: 1px solid #ffffff;
+    }
+    .am-tabs-bd {
+      border: 0px solid #ffffff;
+    }
+    .am-tabs-d2 .am-tabs-nav {
+      background-color: #ffffff;
+      border-bottom: 1px solid #F0F0F0;
+    }
+    .am-tabs-d2 .am-tabs-nav > .am-active {
+      background-color: #ffffff;
+    }
+</style>
+
+<body>
+<div class="surePass">
+    <div class="anyield">
+        <p><span>23000.63</span></p>
+        <p>总资产</p>
+    </div>
+    <canvas class="circleRun" data-run="0" id="canvasThree" amout="1000" nowData="1000"></canvas>
+</div>
+
+
+<div data-am-widget="list_news" class="am-list-news am-list-news-default">
+
+    <div class="am-list-news-bd">
+        <ul class="am-list">
+
+            <li class="am-g am-list-item-dated">
+                <a href="{{=URL('mind')}}" class="am-list-item-hd ">
+                    <h1><span class="am-badge am-badge-primary am-round"><span
+                            class="am-icon-line-chart am-icon-sm"></span></span>
+                        <span class="am-icon-sm " style="color:#000000">
+                              <strong>&nbsp&nbsp您的风险偏好为：
+                                  <span style="color:#007bff">平衡型</span>
+                              </strong>
+                          </span>
+                    </h1>
+                    <div class="am-list-item-text" style="text-indent:4em;margin-top:1em;">查看我的专属资产配置方案</div>
+                    <span class="am-list-date am-icon-angle-right am-icon-sm"></span>
+                </a>
+            </li>
+            <li class="am-g am-list-item-dated">
+                <div data-am-widget="tabs" class="am-tabs am-tabs-d2">
+                    <ul class="am-tabs-nav am-cf">
+                        <li class="am-active"><a href="[data-tab-panel-0]">每日收益</a></li>
+                        <li class=""><a href="[data-tab-panel-1]">月度收益</a></li>
+                        <li class=""><a href="[data-tab-panel-2]">总收益</a></li>
+                    </ul>
+                    <div class="am-tabs-bd">
+                        <div data-tab-panel-0 class="am-tab-panel am-active">
+                            <div class="am-list-item-text" style="">今日最新收益(元)</div>
+                            <div class="am-list-item-text" style="font-size:32px;color:#000000"><strong>0.00</strong></div>
+                            <hr data-am-widget="divider" style="" class="am-divider am-divider-dotted" />
+                            <div id="container" style="width: 98%; height: 400px; margin: 0 auto">
+                            </div>
+                        </div>
+                        <div data-tab-panel-1 class="am-tab-panel ">
+                            <div class="am-list-item-text" style="">08月收益(元)<span class="am-list-date">截止 2017-08-31</span></div>
+                            <div class="am-list-item-text" style="font-size:32px;color:#000000"><strong>0.00</strong></div>
+                            <hr data-am-widget="divider" style="" class="am-divider am-divider-dotted" />
+                            <div id="container_month" style="width: 98%; height: 400px; margin: 0 auto">
+                            </div>
+                        </div>
+                        <div data-tab-panel-2 class="am-tab-panel ">
+                            <div class="am-list-item-text" style="">总收益(元)</div>
+                            <div class="am-list-item-text" style="font-size:32px;color:#000000"><strong>0.00</strong></div>
+                            <hr data-am-widget="divider" style="" class="am-divider am-divider-dotted" />
+                            <div id="container_year" style="width: 98%; height: 400px; margin: 0 auto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+
+
+            <li class="am-g am-list-item-dated">
+
+
+            </li>
+
+
+        </ul>
+    </div>
+
+</div>
+
+
+{{include 'base/navbar.html'}}
+{{include 'base/jsFile.html'}}
+<script src="{{=URL('static','highcharts/highcharts.js')}}"></script>
+<script>
+    $(function () {
+        var findCanvas = $("#canvasThree");
+//		var percents=findCanvas.attr('nowData')/findCanvas.attr('amout');
+//		var percents=1;
+        //percents 为百分比的值  范围 0- 1
+        runCircle(
+            {
+                obj: 'canvasThree',
+                percent: 1,
+                url: "{{=URL('static','module/zteimages/favicon.ico')}}",   //飞机小图地址 module/annular/images/zstart.png
+                imgWidth: 24,
+                imgHeight: 24,
+                circleBottomColor: "#e6eaed",//圆环底色
+                outerColorStart: '#ebf7ff',  //外部圆环 渐变色
+                outerColorMid: '#d8eefc',
+                outerColorEnd: '#a7cee7',
+                innerColorStart: '#6fbef0',  //内部圆环 渐变色
+                innerColorEnd: '#058ee4',
+            }
+        );
+
+
+
+   var title = {
+      text: ""
+   };
+   var subtitle = {
+      text: '',
+   };
+   var xAxis = {
+      categories: ['08.22', '08.23', '08.24', '09.01', '09.02', '09.03',
+         '09.05', '09.06', '09.10', '09.12', '09.13', '09.22']
+   };
+   var yAxis = {
+      title: {
+         text: null
+      },
+      plotLines: [{
+         value: 0,
+         width: 1,
+         color: '#808080'
+      }]
+
+   };
+
+   var tooltip = {
+      valuePrefix: '+',
+       crosshairs: {
+                width: 2,
+                color: '#f7a35c',
+                dashStyle: 'shortdot'
+            }
+   }
+
+   var legend = {
+//      layout: 'vertical',
+//      align: 'right',
+//      verticalAlign: 'middle',
+//      borderWidth: 0,
+      enabled: false
+   };
+   var series =  [
+      {
+         name: " ",
+         data: [0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0.00, 0.01, 0.1],
+          zones: [{
+                value: 0,
+                color: '#f7a35c',
+                dashStyle: 'dot'
+            }, {
+                value: 10,
+                color: '#7cb5ec',
+                dashStyle: 'dot'
+            }, {
+                color: '#90ed7d',
+                dashStyle: 'dot'
+            }]
+      }
+   ];
+
+
+   var json = {};
+
+   json.title = title;
+    json.subtitle = subtitle;
+    json.xAxis = xAxis;
+    json.yAxis = yAxis;
+    json.tooltip = tooltip;
+    json.legend = legend;
+    json.series = series;
+
+   $('#container').highcharts(json);
+   $('#container_month').highcharts(json);
+   $('#container_year').highcharts(json);
+
+
+    })
+</script>
+
+
+</body>
+</html>
