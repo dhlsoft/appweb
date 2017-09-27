@@ -3,26 +3,178 @@
 <head>
     <title>ZTE 中兴金融科技</title>
     {{include 'base/style.html'}}
-    <link rel="stylesheet" href="{{=URL('static','module/preview/app.css')}}">
 </head>
-<body data-type="preview" style="padding: 0px;">
+<style>
+    body {
+        background: #f8f8f8;
+        padding-bottom: 200px;
+    }
+.preview {
+  width: 100%;
+  margin: 0 auto;
+}
+.preview-nav-list {
+  margin-right: 70px;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  bottom: 0;
+  overflow-y: auto;
+}
+.preview-nav-list.active {
+  right: 0;
+}
+.preview-nav-list-block {
+  padding: 16px 22px;
+}
+.preview-nav-list-block span {
+  cursor: pointer;
+  display: block;
+  font-size: 12px;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #eeeeee;
+  color: #888888;
+}
+.preview-nav-list-block span.active {
+  color: #00c0ff;
+}
+.preview-nav-list-block span i {
+  font-size: 12px;
+}
+.preview-phone-block {
+  width: 100%;
+  display: none;
+  padding-right: 70px;
+}
+.preview-view-iframe {
+  border: none;
+}
+.preview-pc-block {
+  width: 100%;
+  display: none;
+}
+.preview-pc-view {
+  margin: 16px;
+  padding: 17px 17px 17px 17px;
+  background: #e3e3e3;
+  border-radius: 13px;
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+}
+.preview-pc-view-iframe {
+  width: 100%;
+  height: 100%;
+}
+.preview-list-pc i.active {
+  color: #fff;
+}
+.preview-list-wap i.active {
+  color: #fff;
+}
+.preview-phone {
+  position: relative;
+  margin: 0 auto;
+  width: 407px;
+  height: 811px;
+  background: #fff;
+  margin-top: 40px;
+  border-radius: 40px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.preview-phone-top {
+  width: 100%;
+  height: 76px;
+  padding-top: 26px;
+}
+.preview-phone-top i {
+  margin: 0 auto;
+  display: block;
+  height: 11px;
+  width: 11px;
+  border-radius: 50%;
+  background: #e3e3e3;
+  margin-bottom: 6px;
+}
+.preview-phone-top span {
+  margin: 0 auto;
+  display: block;
+  height: 8px;
+  width: 86px;
+  border-radius: 30px;
+  background: #e3e3e3;
+}
 
-<!--
-<i class="iconfont">&#xe603;&#xe604;&#xe605;&#xe606;&#xe607;&#xe608;&#xe609;&#xe60a;&#xe60b;</i>
-<i class="iconfont">&#xe60c;&#xe60d;&#xe60e;&#xe60f;&#xe610;&#xe611;&#xe612;&#xe613;&#xe614;</i>
-<i class="iconfont">&#xe615;&#xe616;&#xe617;&#xe618;&#xe619;&#xe611;&#xe612;&#xe613;&#xe614;</i>
--->
+.preview-phone-view {
+  top: 76px;
+  left: 16px;
+  position: absolute;
+  width: 375px;
+  height: 660px;
+}
+.preview-phone-view iframe {
+  width: 100%;
+  height: 100%;
+}
+.preview-phone-home {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  margin-left: -21px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #e3e3e3;
+}
+.preview-nav {
+  background: #323436;
+  width: 70px;
+  height: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 20px;
+}
+.preview-nav ul {
+  width: 100%;
+  overflow: hidden;
+}
+.preview-nav ul li:nth-child(1) {
+  height: 50px;
+}
+.preview-nav ul li:nth-child(2) {
+  height: 50px;
+}
+.preview-nav ul li {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+}
+.preview-nav ul li i {
+  color: #888888;
+  font-size: 28px;
+}
+
+
+</style>
+
+
+
+<body data-type="preview" style="padding: 0px;">
 <div class="preview">
     <div class="preview-nav">
         <ul>
             <li class="back-top">
-                <i class="iconfont">&#xe60c;</i>
+                <i class="am-icon-reply"></i>
             </li>
             <li class="preview-list-pc">
-                <i class="iconfont">&#xe60f;</i>
+                <i class="am-icon-tablet"></i>
             </li>
             <li class="preview-list-wap">
-                <i class="iconfont">&#xe60e;</i>
+                <i class="am-icon-mobile active"></i>
             </li>
         </ul>
         <div class="preview-nav-list">
