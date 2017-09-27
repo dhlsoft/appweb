@@ -1,0 +1,109 @@
+{{block sidebar}}
+<!-- 侧边导航栏 -->
+<div class="left-sidebar">
+    <!-- 用户信息 -->
+    <!--<div class="tpl-sidebar-user-panel">
+        <div class="tpl-user-panel-slide-toggleable">
+            <div class="tpl-user-panel-profile-picture">
+                <img src="{{=URL('static','module/admin/img/user04.png')}}" alt="">
+            </div>
+            <span class="user-panel-logged-in-text">
+          <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
+          禁言小张
+      </span>
+            <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
+        </div>
+    </div>-->
+
+    <!-- 菜单 -->
+    <ul class="sidebar-nav">
+        <li class="sidebar-nav-heading">主导航 <span class="sidebar-nav-heading-info"></span></li>
+        <li class="sidebar-nav-link">
+            <a target="navTab" href="{{=URL('admin','welcome')}}" class="active">
+                <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
+            </a>
+        </li>
+        <li class="sidebar-nav-link">
+            <a href="javascript:;" class="sidebar-nav-sub-title">
+                <i class="am-icon-table sidebar-nav-link-logo"></i> 智投管理
+                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                <span class="am-badge am-badge-warning sidebar-nav-link-logo-ico am-round am-fr am-margin-right-sm">2</span>
+            </a>
+            <ul class="sidebar-nav sidebar-nav-sub">
+                <li class="sidebar-nav-link">
+                    <a href="#">
+                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 产品库管理
+                    </a>
+                </li>
+
+                <li class="sidebar-nav-link">
+                    <a href="#">
+                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 推荐产品管理
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="sidebar-nav-link">
+            <a href="#">
+                <i class="am-icon-calendar sidebar-nav-link-logo"></i> 经营数据
+            </a>
+        </li>
+        <li class="sidebar-nav-link">
+            <a href="#">
+                <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 客户查询
+
+            </a>
+        </li>
+        <li class="sidebar-nav-link">
+            <a target="navTab" href="{{=URL('finance','index')}}">
+                <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 数据同步
+
+            </a>
+        </li>
+
+        <li class="sidebar-nav-heading">Page<span class="sidebar-nav-heading-info"> 系统功能</span></li>
+        <li class="sidebar-nav-link">
+            <a href="javascript:;" class="sidebar-nav-sub-title">
+                <i class="am-icon-table sidebar-nav-link-logo"></i> 系统管理
+                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+                <span class="am-badge am-badge-success sidebar-nav-link-logo-ico am-round am-fr am-margin-right-sm">2</span>
+            </a>
+            <ul class="sidebar-nav sidebar-nav-sub">
+                <li class="sidebar-nav-link">
+                    <a href="#">
+                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 菜单管理
+                    </a>
+                </li>
+
+                <li class="sidebar-nav-link">
+                    <a href="#">
+                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 用户管理
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="sidebar-nav-link">
+            <a href="#">
+                <i class="am-icon-clone sidebar-nav-link-logo"></i> 数据字典
+                <!--<span class="am-badge am-badge-secondary sidebar-nav-link-logo-ico am-round am-fr am-margin-right-sm">6</span>-->
+            </a>
+        </li>
+        <li class="sidebar-nav-link">
+            <a href="#">
+                <i class="am-icon-key sidebar-nav-link-logo"></i> 系统日志
+            </a>
+        </li>
+        <li class="sidebar-nav-link">
+            <a target="navTab" href="{{=URL('admin','calendar')}}">
+                <i class="am-icon-calendar sidebar-nav-link-logo"></i> 日历
+            </a>
+        </li>
+        <li class="sidebar-nav-link">
+            <a href="#">
+                <i class="am-icon-tv sidebar-nav-link-logo"></i> 自定义
+            </a>
+        </li>
+
+    </ul>
+</div>
+{{end}}

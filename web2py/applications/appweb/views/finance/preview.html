@@ -1,0 +1,104 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <title>ZTE 中兴金融科技</title>
+    {{include 'base/style.html'}}
+    <link rel="stylesheet" href="{{=URL('static','module/preview/app.css')}}">
+</head>
+<body data-type="preview" style="padding: 0px;">
+
+<!--
+<i class="iconfont">&#xe603;&#xe604;&#xe605;&#xe606;&#xe607;&#xe608;&#xe609;&#xe60a;&#xe60b;</i>
+<i class="iconfont">&#xe60c;&#xe60d;&#xe60e;&#xe60f;&#xe610;&#xe611;&#xe612;&#xe613;&#xe614;</i>
+<i class="iconfont">&#xe615;&#xe616;&#xe617;&#xe618;&#xe619;&#xe611;&#xe612;&#xe613;&#xe614;</i>
+-->
+<div class="preview">
+    <div class="preview-nav">
+        <ul>
+            <li class="back-top">
+                <i class="iconfont">&#xe60c;</i>
+            </li>
+            <li class="preview-list-pc">
+                <i class="iconfont">&#xe60f;</i>
+            </li>
+            <li class="preview-list-wap">
+                <i class="iconfont">&#xe60e;</i>
+            </li>
+        </ul>
+        <div class="preview-nav-list">
+            <div class="preview-nav-list-block"></div>
+        </div>
+    </div>
+    <!--WAP-->
+    <div class="preview-phone-block" style="display: block;">
+
+        <div class="preview-phone">
+            <div class="preview-phone-top">
+                <i></i>
+                <span></span>
+            </div>
+            <div class="preview-phone-home"></div>
+            <div class="preview-view preview-phone-view">
+                <iframe class="preview-view-iframe preview-phone-view-iframe" src="{{=URL('index')}}" scrolling="yes"
+                        frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    <!--PC-->
+    <div class="preview-pc-block">
+        <div class="preview-view preview-pc-view ">
+            <iframe class="preview-view-iframe preview-pc-view-iframe" src="{{=URL('index')}}" scrolling="yes"
+                    frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+
+{{include 'base/jsFile.html'}}
+<script type="text/javascript">
+    function autoSize() {
+        if ($('body').width() < 700) {
+            $('.preview').css({
+                "max-width": "100%"
+            });
+            $('.preview-nav').hide();
+            $('.preview-pc-view').css('height', $(window).height())
+        } else {
+            $('.preview').css({
+                "max-width": "100%",
+                "padding-right": "70px"
+            });
+            $('.preview-nav').show();
+            $('.preview-pc-view').css('height', $(window).height() - 33)
+        }
+
+    }
+    $(window).resize(function () {
+        autoSize()
+    });
+
+    $('.preview-list-pc').click(function () {
+        autoSize()
+        $('.preview-phone-block').hide();
+        $('.preview-pc-block').show();
+        $(this).find('i').addClass('active');
+        $('.preview-list-wap').find('i').removeClass('active')
+    })
+
+    $('.preview-list-wap').click(function () {
+
+        $('.preview-phone-block').show();
+        $('.preview-pc-block').hide();
+        $(this).find('i').addClass('active');
+        $('.preview-list-pc').find('i').removeClass('active')
+    });
+    //$('.preview-view-iframe').attr('src', template[i].page[0][1]);
+
+    $('.back-top').click(function () {
+        window.location.href = "{{=URL('index')}}"
+    })
+</script>
+
+
+</body>
+</html>

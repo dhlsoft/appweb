@@ -19,3 +19,6 @@ def mind():
 
 def configure():
     return dict(message='')
+
+def preview():
+    return dict(message='')

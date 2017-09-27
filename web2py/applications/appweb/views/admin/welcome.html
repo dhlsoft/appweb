@@ -1,0 +1,301 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <title>ZTE 中兴金融科技</title>
+    {{include 'base/style.html'}}
+    <link rel="stylesheet" href="{{=URL('static','assets/css/amazeui.datatables.min.css')}}">
+
+</head>
+
+<body>
+<!-- 内容区域 -->
+<!--<div class="container-fluid am-cf">
+    <div class="row">
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
+            <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 首页
+                <small>智能投顾管理后台</small>
+            </div>
+            <p class="page-header-description">中兴(沈阳)金融科技有限公司</p>
+        </div>
+        &lt;!&ndash;<div class="am-u-lg-3 tpl-index-settings-button">
+            <button type="button" class="page-header-button"><span class="am-icon-paint-brush"></span> 设置
+            </button>
+        </div>&ndash;&gt;
+    </div>
+
+</div>-->
+
+<div class="row-content am-cf">
+    <div class="row  am-cf">
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-4">
+            <div class="widget am-cf">
+                <div class="widget-head am-cf">
+                    <div class="widget-title am-fl">保有量</div>
+                    <div class="widget-function am-fr">
+                        <a href="javascript:;" class="am-icon-cog"></a>
+                    </div>
+                </div>
+                <div class="widget-body am-fr">
+                    <div class="am-fl">
+                        <div class="widget-fluctuation-period-text">
+                            ￥22261746.45
+                            <button class="widget-fluctuation-tpl-btn">
+                                <i class="am-icon-calendar"></i>
+                                更多月份
+                            </button>
+                        </div>
+                    </div>
+                    <div class="am-fr am-cf">
+                        <div class="widget-fluctuation-description-amount text-success" am-cf>
+                            +￥304200.56
+
+                        </div>
+                        <div class="widget-fluctuation-description-text am-text-right">
+                            8月份环比上涨
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
+            <div class="widget widget-primary am-cf">
+                <div class="widget-statistic-header">
+                    今日申购金额
+                </div>
+                <div class="widget-statistic-body">
+                    <div class="widget-statistic-value">
+                        ￥27,294
+                    </div>
+                    <div class="widget-statistic-description">
+                        环比上涨 <strong>+2.3</strong> %
+                    </div>
+                    <span class="widget-statistic-icon am-icon-credit-card-alt"></span>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4">
+            <div class="widget widget-purple am-cf">
+                <div class="widget-statistic-header">
+                    新增开户数
+                </div>
+                <div class="widget-statistic-body">
+                    <div class="widget-statistic-value">
+                        25,294
+                    </div>
+                    <div class="widget-statistic-description">
+                        环比上涨 <strong>+2.5</strong> %
+                    </div>
+                    <span class="widget-statistic-icon am-icon-support"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row am-cf">
+        <div class="am-u-sm-12 am-u-md-8">
+            <div class="widget am-cf">
+                <div class="widget-head am-cf">
+                    <div class="widget-title am-fl">保有量</div>
+                    <div class="widget-function am-fr">
+                        <a href="javascript:;" class="am-icon-cog"></a>
+                    </div>
+                </div>
+                <div class="widget-body-md widget-body tpl-amendment-echarts am-fr" id="tpl-echarts">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="am-u-sm-12 am-u-md-4">
+            <div class="widget am-cf">
+                <div class="widget-head am-cf">
+                    <div class="widget-title am-fl">运营数据总览</div>
+                    <div class="widget-function am-fr">
+                        <a href="javascript:;" class="am-icon-cog"></a>
+                    </div>
+                </div>
+                <div class="widget-body widget-body-md am-fr">
+
+                    <div class="am-progress-title">今日申购金额 <span
+                            class="am-fr am-progress-title-more">+￥27,294</span>
+                    </div>
+                    <div class="am-progress">
+                        <div class="am-progress-bar" style="width: 15%"></div>
+                    </div>
+                    <div class="am-progress-title">新增开户数 <span
+                            class="am-fr am-progress-title-more">+25,294</span>
+                    </div>
+                    <div class="am-progress">
+                        <div class="am-progress-bar  am-progress-bar-warning" style="width: 75%"></div>
+                    </div>
+                    <div class="am-progress-title">今日收入 <span
+                            class="am-fr am-progress-title-more">+￥327,294</span>
+                    </div>
+                    <div class="am-progress">
+                        <div class="am-progress-bar am-progress-bar-danger" style="width: 35%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row am-cf">
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-12 widget-margin-bottom-lg">
+
+            <div class="widget am-cf widget-body-lg">
+
+                <div class="widget-body  am-fr">
+                    <div class="am-scrollable-horizontal ">
+                        <table width="100%" class="am-table am-table-compact am-text-nowrap tpl-table-black "
+                               id="example-r">
+                            <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>保有量</th>
+                                <th>收入</th>
+                                <th>当日申购金额</th>
+                                <th>组合一键申购金额</th>
+                                <th>单品申购金额</th>
+                                <th>当日赎回金额</th>
+                                <th>新增开户数</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="gradeX">
+                                <td>2017-09-27</td>
+                                <td>23412323.00</td>
+                                <td>232323.99</td>
+                                <td>2224.00</td>
+                                <td>234555.00</td>
+                                <td>666213.00</td>
+                                <td>112312.00</td>
+                                <td>3001</td>
+                            </tr>
+                            <tr class="even gradeC">
+                                <td>2017-09-28</td>
+                                <td>23412323.00</td>
+                                <td>232323.99</td>
+                                <td>2224.00</td>
+                                <td>234555.00</td>
+                                <td>666213.00</td>
+                                <td>112312.00</td>
+                                <td>3001</td>
+                            </tr>
+                            <tr class="gradeX">
+                                <td>2017-09-29</td>
+                                <td>23412323.00</td>
+                                <td>232323.99</td>
+                                <td>2224.00</td>
+                                <td>234555.00</td>
+                                <td>666213.00</td>
+                                <td>112312.00</td>
+                                <td>3001</td>
+                            </tr>
+                            <tr class="even gradeC">
+                                <td>2017-09-30</td>
+                                <td>23412323.00</td>
+                                <td>232323.99</td>
+                                <td>2224.00</td>
+                                <td>234555.00</td>
+                                <td>666213.00</td>
+                                <td>112312.00</td>
+                                <td>3001</td>
+                            </tr>
+                            <tr class="even gradeC">
+                                <td>2017-10-01</td>
+                                <td>23412323.00</td>
+                                <td>232323.99</td>
+                                <td>2224.00</td>
+                                <td>234555.00</td>
+                                <td>666213.00</td>
+                                <td>112312.00</td>
+                                <td>3001</td>
+                            </tr>
+                            <!-- more data -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{{include 'base/jsFile.html'}}
+<script src="{{=URL('static','assets/js/echarts.min.js')}}"></script>
+<script src="{{=URL('static','assets/js/amazeui.datatables.min.js')}}"></script>
+<script src="{{=URL('static','assets/js/dataTables.responsive.min.js')}}"></script>
+<script>
+    $(function () {
+
+        pageData['index']();
+
+    })
+    var pageData = {
+        // ===============================================
+        // 首页
+        // ===============================================
+        'index': function indexData() {
+            $('#example-r').DataTable({
+
+                bInfo: false, //页脚信息
+                dom: 'ti'
+            });
+
+
+            // ==========================
+            // 百度图表A http://echarts.baidu.com/
+            // ==========================
+
+            var echartsA = echarts.init(document.getElementById('tpl-echarts'));
+            option = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+                grid: {
+                    top: '3%',
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [{
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                }],
+                yAxis: [{
+                    type: 'value'
+                }],
+                textStyle: {
+                    color: '#838FA1'
+                },
+                series: [{
+                    name: '邮件营销',
+                    type: 'line',
+                    stack: '总量',
+                    areaStyle: {normal: {}},
+                    data: [11, 23, 45, 55, 80, 89, 90, 99],
+                    itemStyle: {
+                        normal: {
+                            color: '#1cabdb',
+                            borderColor: '#1cabdb',
+                            borderWidth: '2',
+                            borderType: 'solid',
+                            opacity: '1'
+                        },
+                        emphasis: {}
+                    }
+                }]
+            };
+
+            echartsA.setOption(option);
+        }
+    }
+</script>
+</body>
+</html>

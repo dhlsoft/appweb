@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{=URL('static','module/annular/css/iconfont/iconfont.css')}}">
     <link rel="stylesheet" href="{{=URL('static','module/annular/style/reset.css')}}">
     <link rel="stylesheet" href="{{=URL('static','module/annular/style/style.css')}}">
-
 </head>
 <style>
     .chooseTitle {
@@ -59,10 +58,10 @@
 <body>
 <div data-am-widget="list_news" class="am-list-news am-list-news-default">
     <!--列表标题-->
-    <div class="am-list-news-hd am-cf">
+    <div class="am-cf">
         <!--带更多链接-->
         <a class="" style="color:#007bff">
-            <h2><span class="am-icon-braille am-icon-sm">&nbsp&nbsp</span>将根据您的流动性安排和风险偏好，设计专属于您的资产配置方案：</h2>
+            <h3><span class="am-icon-braille am-icon-sm" style="">&nbsp&nbsp将根据您的流动性安排和风险偏好，设计专属于您的资产配置方案：</span></h3>
 
         </a>
     </div>
@@ -103,10 +102,10 @@
                     <!--<div class="am-list-item-text" style="text-indent:4em;margin-top:1em;">查看我的专属资产配置方案</div>-->
                     <span class="am-list-date am-icon-angle-right am-icon-sm"></span>
 
-                    <div class="am-text-default" style="text-indent:4em;margin-top:1em;color:#000000">
+                    <div class="" style="width: 100%; text-indent:4em;margin-top:1em;color:#000000">
                         <strong>专属配置</strong><span class="am-text-sm" style="color: #999;">(仅做参考不作为投资建议。09-23)</span>
                     </div>
-                    <div class="am-text-default" style="text-indent:4em;margin-top:1em;color:#000000"><strong>"建议高配货基，适当配置债基，低配股基"</strong>
+                    <div class="" style="width: 100%;text-indent:4em;margin-top:1em;color:#000000"><span><strong>"建议高配货基，适当配置债基，低配股基"</strong></span>
                     </div>
                 </a>
 
@@ -124,15 +123,10 @@
 
                 <div data-am-widget="tabs" class="am-tabs am-tabs-d2">
                     <ul class="am-tabs-nav am-cf">
-                        <li class=""><a></a></li>
-                        <li class="am-active"><a href="[data-tab-panel-0]">建议配置方案</a></li>
-                        <li class=""><a href="[data-tab-panel-1]">历史业绩</a></li>
-                        <li class=""><a></a></li>
-
+                        <li class="am-active am-center"><a href="[data-tab-panel-0]">建议配置方案</a></li>
+                        <li class=" am-center"><a href="[data-tab-panel-1]">历史业绩</a></li>
                     </ul>
                     <div class="am-tabs-bd">
-                        <div data-tab-panel-3 class="am-tab-panel ">
-                        </div>
                         <div data-tab-panel-0 class="am-tab-panel am-active">
                             <div id="container" style="width: 98%; height: 400px; margin: 0 auto">
                             </div>
@@ -140,8 +134,6 @@
                         <div data-tab-panel-1 class="am-tab-panel ">
                             <div id="container_his" style="width: 98%; height: 400px; margin: 0 auto">
                             </div>
-                        </div>
-                        <div data-tab-panel-4 class="am-tab-panel ">
                         </div>
                     </div>
                 </div>
@@ -190,121 +182,132 @@
     });
 
 
-
     $(function () {
-    $('#container').highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            spacing : [100, 0 , 40, 0]
-        },
-        title: {
-            floating:true,
-            text: '<span class="am-text-sm" style="color: #999;">资产配比总额(元)</span><br/>' +
-            '<span>10,000.00</span>'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
-                },
-                showInLegend: false,
-            }
-        },
-        series: [{
-            type: 'pie',
-            innerSize: '80%',
-            name: '资产配比',
-            data: [
-                {name:'货基',   y: 64.0},
-                ['债基',       29.0],
-                {
-                    name: '股基',
-                    y: 7.0,
-                    sliced: true,
-                    selected: true
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                spacing: [100, 0, 40, 0]
+            },
+            title: {
+                floating: true,
+                text: '<span class="am-text-sm" style="color: #999;">资产配比总额(元)</span><br/>' +
+                '<span>10,000.00</span>'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    },
+                    showInLegend: false,
                 }
-            ]
-        }]
-    }, function(c) {
-        // 环形图圆心
-        var centerY = c.series[0].center[1],
-            titleHeight = parseInt(c.title.styles.fontSize);
-        c.setTitle({
-            y:centerY + titleHeight/2
+            },
+            series: [{
+                type: 'pie',
+                innerSize: '80%',
+                name: '资产配比',
+                data: [
+                    {name: '货基', y: 64.0},
+                    ['债基', 29.0],
+                    {
+                        name: '股基',
+                        y: 7.0,
+                        sliced: true,
+                        selected: true
+                    }
+                ]
+            }]
+        }, function (c) {
+            // 环形图圆心
+            var centerY = c.series[0].center[1],
+                titleHeight = parseInt(c.title.styles.fontSize);
+            c.setTitle({
+                y: centerY + titleHeight / 2
+            });
+            chart = c;
         });
-        chart = c;
+
+
+        var title = {
+            text: null
+        };
+        var subtitle = {
+            text: '',
+        };
+        var xAxis = {
+            categories: ['2011-01', '2011-02', '2011-03', '2011-04', '2011-05', '2011-06',
+                '2011-07', '2011-08', '2011-09', '2011-10', '2011-11', '2011-12']
+        };
+        var yAxis = {
+            title: {
+                text: null
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+
+        };
+
+        var tooltip = {
+            valueSuffix: '%',
+            crosshairs: {
+                width: 2,
+                color: '#f7a35c',
+                dashStyle: 'shortdot'
+            }
+        }
+
+        var legend = {
+            align: 'right',
+            verticalAlign: 'top',
+            y: 0
+
+        };
+        var series = [
+            {
+                name: '策略',
+                data: [-0.2 * 0.01, 0.8 * 0.01, 5.7 * 0.01, 11.3 * 0.01, 17.0 * 0.01, 22.0 * 0.01, 24.8 * 0.01,
+                    24.1 * 0.01, 20.1 * 0.01, 14.1 * 0.01, 8.6 * 0.01, 2.5 * 0.01],
+                zones: [{
+                    dashStyle: 'dot'
+                }]
+            },
+            {
+                name: '基准',
+                data: [3.9 * 0.01, 4.2 * 0.01, 5.7 * 0.01, 8.5 * 0.01, 11.9 * 0.01, 15.2 * 0.01, 17.0 * 0.01,
+                    16.6 * 0.01, 14.2 * 0.01, 10.3 * 0.01, 6.6 * 0.01, 4.8 * 0.01],
+                zones: [{
+                    dashStyle: 'dot'
+                }]
+
+            }
+        ];
+
+        var json = {};
+
+        json.title = title;
+        json.subtitle = subtitle;
+        json.xAxis = xAxis;
+        json.yAxis = yAxis;
+        json.tooltip = tooltip;
+        json.legend = legend;
+        json.series = series;
+
+        $('#container_his').highcharts(json);
+
     });
-
-
-    var title = {
-      text: null
-   };
-   var subtitle = {
-      text: '',
-   };
-   var xAxis = {
-      categories: ['2011-01', '2011-02', '2011-03', '2011-04', '2011-05', '2011-06',
-         '2011-07', '2011-08', '2011-09', '2011-10', '2011-11', '2011-12']
-   };
-   var yAxis = {
-      title: {
-         text: '累积收益率 (%)'
-      },
-      plotLines: [{
-         value: 0,
-         width: 1,
-         color: '#808080'
-      }]
-
-   };
-
-   var tooltip = {
-      valueSuffix: '%'
-   }
-
-   var legend = {
-      layout: 'vertical',
-      align: 'right',
-      verticalAlign: 'middle',
-      borderWidth: 0
-   };
-   var series =  [
-      {
-         name: '策略',
-         data: [-0.2*0.01, 0.8*0.01, 5.7*0.01, 11.3*0.01, 17.0*0.01, 22.0*0.01, 24.8*0.01,
-            24.1*0.01, 20.1*0.01, 14.1*0.01, 8.6*0.01, 2.5*0.01]
-      },
-      {
-         name: '基准',
-         data: [3.9*0.01, 4.2*0.01, 5.7*0.01, 8.5*0.01, 11.9*0.01, 15.2*0.01, 17.0*0.01,
-            16.6*0.01, 14.2*0.01, 10.3*0.01, 6.6*0.01, 4.8*0.01]
-      }
-   ];
-
-   var json = {};
-
-   json.title = title;
-    json.subtitle = subtitle;
-    json.xAxis = xAxis;
-    json.yAxis = yAxis;
-    json.tooltip = tooltip;
-    json.legend = legend;
-    json.series = series;
-
-   $('#container_his').highcharts(json);
-
-});
 
 
     $("#configure").click(function () {

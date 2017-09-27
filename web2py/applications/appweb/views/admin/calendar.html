@@ -1,0 +1,151 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <title>ZTE 中兴金融科技</title>
+    {{include 'base/style.html'}}
+    <link rel="stylesheet" href="{{=URL('static','assets/css/fullcalendar.min.css')}}"/>
+    <link rel="stylesheet" href="{{=URL('static','assets/css/fullcalendar.print.css')}}" media='print'/>
+</head>
+
+<body>
+<div class="row-content am-cf">
+    <div class="tpl-calendar-box">
+        <div id="calendar"></div>
+    </div>
+</div>
+
+
+{{include 'base/jsFile.html'}}
+<script src="{{=URL('static','assets/js/moment.js')}}"></script>
+<script src="{{=URL('static','assets/js/fullcalendar.min.js')}}"></script>
+<script>
+    $(document).ready(function () {
+        var editBox = $('#calendar-edit-box');
+
+        $('.edit-box-close').on('click', function () {
+            $('#calendar').fullCalendar('unselect');
+        })
+        $('#calendar').fullCalendar({
+
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+
+            monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+            monthNamesShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+            dayNames: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+            dayNamesShort: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+            today: ["今天"],
+            firstDay: 1,
+            buttonText: {
+                today: '本月',
+                month: '月',
+                week: '周',
+                day: '日',
+                prev: '上一月',
+                next: '下一月'
+            },
+            defaultDate: '2017-09-12',
+            lang: 'zh-cn',
+            navLinks: true, // can click day/week names to navigate views
+            selectable: true,
+            selectHelper: true,
+            select: function (start, end) {
+                var title = prompt('填写你的记录的:');
+                var eventData;
+                if (title) {
+                    eventData = {
+                        title: title,
+                        start: start,
+                        end: end
+                    };
+                    $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+                }
+                $('#calendar').fullCalendar('unselect');
+
+
+            },
+            editable: true,
+            eventLimit: true, // allow "more" link when too many events
+            eventClick: function (event, jsEvent, view) {
+
+                // event.source.events[0].title = '222223333'
+                // 修改数据
+                // 标题
+                $('.calendar-edit-box-title').val(event.title)
+
+
+                //  弹出框
+                editBox.modal();
+
+
+            },
+            events: [{
+                id: 1,
+                title: '购买股票',
+                start: '2017-09-01',
+                end: '2017-09-10'
+            }, {
+                id: 2,
+                title: '购买基金',
+                start: '2017-09-07',
+                end: '2017-09-10'
+            }, {
+                id: 3,
+                title: '购买债基',
+                start: '2017-09-09',
+                end: '2017-09-10'
+            }, {
+                id: 4,
+                title: '购买债基',
+                start: '2017-09-16',
+                end: '2017-09-10'
+            }, {
+                id: 5,
+                title: '购买债基',
+                start: '2017-09-11',
+                end: '2017-09-13'
+            }, {
+                id: 6,
+                title: '购买债基',
+                start: '2017-09-12',
+                end: '2017-09-12'
+            }, {
+                id: 7,
+                title: '购买债基',
+                start: '2017-09-12',
+                end: '2017-09-12'
+            }, {
+                id: 8,
+                title: '购买债基',
+                start: '2017-09-12',
+                end: '2017-09-12'
+            }, {
+                id: 9,
+                title: '购买债基',
+                start: '2017-09-12',
+                end: '2017-09-12'
+            }, {
+                id: 10,
+                title: '购买债基',
+                start: '2017-09-12',
+                end: '2017-09-12'
+            }, {
+                id: 11,
+                title: 'Birthday Party',
+                start: '2017-09-13',
+                end: '2017-09-12'
+            }, {
+                id: 12,
+                title: 'Click for Google',
+                start: '2017-09-28',
+                end: '2017-09-12'
+            }]
+        });
+
+    });
+</script>
+</body>
+</html>

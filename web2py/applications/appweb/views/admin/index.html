@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <title>ZTE 中兴金融科技</title>
+    {{include 'base/style.html'}}
+</head>
+
+<body id="ajax-template" data-type="index">
+
+<div class="am-g tpl-g">
+    {{include 'baseadmin/header.html'}}
+    {{include 'baseadmin/skin.html'}}
+    {{include 'baseadmin/sidebar.html'}}
+    <div class="tpl-content-wrapper">
+    </div>
+</div>
+
+{{include 'base/jsFile.html'}}
+
+<script>
+    $(function () {
+//    $(".tpl-content-wrapper").html("112");
+        autoLeftNav();
+        $(window).resize(function () {
+            autoLeftNav();
+            console.log($(window).width())
+        });
+
+
+        $("#ajax-template").on("click", "a[target='navTab']", function () {
+            var that = $(this);
+            var _text = that.text();
+            var _href = that.attr("href");
+            $.ajax({
+                url: _href,
+                dataType: "html",
+                success: function (result) {
+                    $(".tpl-content-wrapper").html(result);
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            });
+            return false;
+        });
+        a_obj=$("a[target='navTab']");
+        if(a_obj.length>0){
+            a_obj[0].click();
+        }
+
+    });
+
+
+    var saveSelectColor = {
+        'Name': 'SelcetColor',
+        'Color': 'theme-black'
+    }
+
+    // 判断用户是否已有自己选择的模板风格
+    if (storageLoad('SelcetColor')) {
+        $('body').attr('class', storageLoad('SelcetColor').Color)
+    } else {
+        storageSave(saveSelectColor);
+        $('body').attr('class', 'theme-white')
+    }
+
+
+    // 本地缓存
+    function storageSave(objectData) {
+        localStorage.setItem(objectData.Name, JSON.stringify(objectData));
+    }
+
+    function storageLoad(objectName) {
+        if (localStorage.getItem(objectName)) {
+            return JSON.parse(localStorage.getItem(objectName))
+        } else {
+            return false
+        }
+    }
+
+
+    // 侧边菜单开关
+
+
+    function autoLeftNav() {
+        $('.tpl-header-switch-button').on('click', function () {
+            if ($('.left-sidebar').is('.active')) {
+                if ($(window).width() > 1024) {
+                    $('.tpl-content-wrapper').removeClass('active');
+                }
+                $('.left-sidebar').removeClass('active');
+            } else {
+
+                $('.left-sidebar').addClass('active');
+                if ($(window).width() > 1024) {
+                    $('.tpl-content-wrapper').addClass('active');
+                }
+            }
+        })
+
+        if ($(window).width() < 1024) {
+            $('.left-sidebar').addClass('active');
+        } else {
+            $('.left-sidebar').removeClass('active');
+        }
+    }
+
+
+    // 侧边菜单
+    $('.sidebar-nav-sub-title').on('click', function () {
+        $(this).siblings('.sidebar-nav-sub').slideToggle(80)
+            .end()
+            .find('.sidebar-nav-sub-ico').toggleClass('sidebar-nav-sub-ico-rotate');
+    })
+
+    // 风格切换
+
+    $('.tpl-skiner-toggle').on('click', function () {
+        $('.tpl-skiner').toggleClass('active');
+    })
+
+    $('.tpl-skiner-content-bar').find('span').on('click', function () {
+        $('body').attr('class', $(this).attr('data-color'))
+        saveSelectColor.Color = $(this).attr('data-color');
+        // 保存选择项
+        storageSave(saveSelectColor);
+
+    })
+</script>
+</body>
+
+</html>
