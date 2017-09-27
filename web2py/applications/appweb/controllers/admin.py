@@ -7,3 +7,6 @@ def welcome():
 
 def calendar():
     return dict(message='')
+
+def login():
+    return dict(message='')
