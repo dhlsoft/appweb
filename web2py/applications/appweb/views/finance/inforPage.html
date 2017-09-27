@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+    <title>风险测评声明</title>
+    {{include 'base/style.html'}}
+</head>
+<style type="text/css">
+	body,html{
+		background: #fff;
+	}
+
+	h2{padding: 1rem;
+		text-align: center;
+		font-weight: bold;
+		font-size: 0.9375rem;
+		line-height: 2rem;
+	}
+	p{ padding: 1rem;
+        margin:0;
+        padding:0;
+        border:0;
+		text-align: justify;
+		font-size: 0.875rem;
+		line-height: 1.5rem;
+	}
+</style>
+<body>
+    <header data-am-widget="header"
+            class="am-header am-header-default">
+        <div class="am-header-left am-header-nav">
+            <button id="close" type="button" class="am-close am-close-spin">&times;</button>
+        </div>
+
+        <h4 class="am-header-title">
+            风险测评声明
+        </h4>
+    </header>
+    <h2>投资人签署</h2>
+    <p>本人已经了解并愿意遵守国家有关证券市场管理的法律、法规、规章及相关业务规则，本人在此郑重承诺以上填写的内容真实、准确、完整。若本人提供的信息发生任何重大变化，本人将及时通知贵公司。本人为中国税收居民，未取得其他国家或地区的国籍或永久居住权，过去一年未在其他国家居住或工作，未从事其他有义务向别国缴纳税收的活动，本人为实际控制投资者的自然人和交易的实际受益人。</p>
+    <h2>特别声明</h2>
+    <p>本问卷旨在了解您可承受的风险程度等情况，借此协助您选择合适的金融产品或金融服务类别，以符合您的风险承受能力。</p>
+    <p>风险承受能力评估是本公司向客户履行适当性职责的一个环节，其目的是使本公司所提供的金融产品或金融服务与您的风险承受能力等级相匹配。</p>
+    <p>本公司特别提醒您：本公司向客户履行风险承受能力评估等适当性职责，并不能取代您自己的投资判断，也不会降低金融产品或金融服务的固有风险；我公司披露评估金融产品的风险特征与您风险承受能力的匹配情况不构成对您投资收益的担保。同时，与金融产品或金融服务相关的投资风险、履约责任以及费用等将由您自行承担。</p>
+    <p>本公司提示您：本公司根据您提供的信息对您进行风险承受能力评估，开展适当性工作。您应当如实提供相关信息及证明材料，并对所提供的信息和证明材料的真实性、准确性、完整性负责。您未提供相应的信息或提供的信息不完整的，本公司将拒绝向您销售产品或者提供服务。</p>
+    <p>
+    	本公司建议：当您的各项状况发生重大变化时，需对您所投资的金融产品及时进行重新审视，以确保您的投资决定与您可承受的投资风险程度等实际情况一致。
+    </p>
+    <p>
+    	本公司在此承诺，对于您在本问卷中所提供的一切信息，本公司将严格按照法律法规要求承担保密义务（法律法规规定的有权机关依法定程序进行查询的除外）。
+    </p>
+{{include 'base/jsFile.html'}}
+<script type="text/javascript">
+
+
+$("#close").click(function(){
+	window.location.href="{{=URL('question')}}"
+});
+
+</script>
+
+</body></html>
